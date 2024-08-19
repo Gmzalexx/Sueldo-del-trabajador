@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sueldo_del_trabajador.MainPage">
+
+    <FlexLayout Direction="Column">
+        <VerticalStackLayout Padding="15" FlexLayout.Basis="Auto" BackgroundColor="Beige">
+            <!-- Campo para ingresar el sueldo del trabajador -->
+            <Entry x:Name="sueldoEntryField" Placeholder="Ingrese el sueldo" />
+            <!-- Botón para calcular y mostrar el nuevo sueldo -->
+            <Button x:Name="Guardarbtn" Text="Calcular Nuevo Sueldo" Clicked="Guardarbtn_Clicked"/>
+        </VerticalStackLayout>
+
+        <ListView x:Name="listview" FlexLayout.Grow="1" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <VerticalStackLayout Padding="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- Muestra el sueldo original -->
+                                <Label Grid.Column="0" Text="Sueldo Inicial:"/>
+                                <Label Grid.Column="1" Text="{Binding SueldoInicial}" FontAttributes="Bold"/>
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- Muestra el aumento aplicado -->
+                                <Label Grid.Column="0" Text="Aumento aplicado:"/>
+                                <Label Grid.Column="1" Text="{Binding AumentoAplicado}" FontAttributes="Bold"/>
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- Muestra el nuevo sueldo -->
+                                <Label Grid.Column="0" Text="Nuevo sueldo:"/>
+                                <Label Grid.Column="1" Text="{Binding NuevoSueldo}" FontAttributes="Bold"/>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </FlexLayout>
+
+
+</ContentPage>
